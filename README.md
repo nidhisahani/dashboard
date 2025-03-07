@@ -2,7 +2,7 @@
 This project is a **React-based dashboard** that fetches and displays data from the **fakestoreapi**. It includes authentication using **JWT**, state management with **React Context API**, and data visualization using **Chart.js**.
 
 ## Features
-- **User Authentication (JWT) via Reqres API**  (for testing use email: eve.holt@reqres.in and password:cityslicka)
+- **User Authentication (JWT) via firebase**  
 - **Protected Routes** using React Router
 - **State Management** with Context API
 - **Fetching API Data** using Fetch API
@@ -12,7 +12,7 @@ This project is a **React-based dashboard** that fetches and displays data from 
 ## Tech Stack
 - **Vite+React** - UI Library
 - **React Context API** - State Management
-- **JWT & Local Storage** - Authentication 
+- **JWT & Local Storage & firebase** - Authentication 
 - **Fetch API** - API Requests
 - **Chart.js** - Data Visualization
 - **Tailwind CSS** - Styling
