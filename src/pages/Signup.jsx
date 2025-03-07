@@ -1,20 +1,18 @@
-import React, { useState, useContext } from "react";
-import { StoreContext } from "../context/StoreContext";
+import React, { useContext, useState } from 'react'
+import { StoreContext } from '../context/StoreContext';
+// import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
-  const [email, setEmail] = useState("");
+function Signup() {
+    // const navigate=useNavigate()
+const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const { login } = useContext(StoreContext);
+  const { signup } = useContext(StoreContext);
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password).then(() => {
-        alert("Login successful");
-      });
+      await signup(email, password)
     } catch (error) {
-      setError(error.message || "An error occur");
       alert(error);
     }
   };
@@ -22,14 +20,9 @@ const Login = () => {
   return (
     <div className="flex bg-color1 h-screen w-[100%]">
       <div className="flex  justify-center w-[100%] bg-amber-200 items-center">
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignup}>
           <div className="flex-col  w-[100%] bg-amber-950 p-12 pt-10  rounded-xl">
-            {error && (
-              <p className="flex flex-wrap text-xs text-amber-950">
-                {error?.message}
-              </p>
-            )}
-            <h1 className="flex text-white text-4xl w-[100%]">Login Your Account</h1>
+            <h1 className="flex text-white text-4xl w-[100%]">Create Your Account</h1>
             <div className="flex-col w-[100%] pt-4">
               <input
                 type="email"
@@ -56,16 +49,16 @@ const Login = () => {
               type="submit"
               className="flex rounded-lg w-[100%] justify-center bg-color0 bg-amber-50  text-black mt-3 px-20 py-3 text-xs"
             >
-              Login
+              SignUp
             </button>
             <div className='p-5'>
-            <a className='text-white' href='/signup'>Don't have an account?</a>
+            <a className='text-white' href='/'>Already have an account?</a>
             </div>
           </div>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Signup

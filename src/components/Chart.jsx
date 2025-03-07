@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { StoreContext } from '../context/StoreContext';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-function Chart({ products }) {
-    
-    if (!products || products.length === 0) {
+function Chart() {
+    const {  data } = useContext(StoreContext)
+
+    if (!data || data.length === 0) {
         return <div className='flex justify-center text-white text-3xl font-serif font-bold'>Loading data...</div>;
     }
 
-    const categories = products?.reduce((acc, product) => {
+    const categories = data?.reduce((acc, product) => {
         acc[product.category] = (acc[product.category] || 0) + 1;
         return acc;
     }, {});
